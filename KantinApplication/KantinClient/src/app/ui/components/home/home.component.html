@@ -1,0 +1,50 @@
+<div class="row text-center mt-1 p-2">
+  <div class="col-6 col-sm-6 col-md-3">
+    <a [routerLink]="['/categories']" routerLinkActive="router-link-active" > <img src="../../../../assets/categories.png" width="150"> <br>
+    Kategoriler</a>
+  </div>
+  <div class="col-6 col-sm-6 col-md-3">
+    <a [routerLink]="['/products']" routerLinkActive="router-link-active" > <img src="../../../../assets/products.png" width="150">
+    <br>
+    Ürünler</a>
+  </div>
+  <div class="col-6 col-sm-6 col-md-3">
+    <a [routerLink]="['/persons']" routerLinkActive="router-link-active" > <img src="../../../../assets/persons.png" width="150"><br>
+     Personeller</a>
+   </div>
+   <div class="col-6 col-sm-6 col-md-3">
+     <a [routerLink]="['/basketadd']" routerLinkActive="router-link-active" ><img src="../../../../assets/basketadd.png" width="150"><br>
+     Sepete Ekle</a>
+   </div>
+</div>
+
+<div class="row text-center mt-1 p-2">
+  <div class="col-6 col-sm-6 col-md-3">
+    <a [routerLink]="['/baskets']" routerLinkActive="router-link-active" ><img src="../../../../assets/basket.png" width="150"><br>
+    Sepet</a>
+  </div>
+  <div class="col-6 col-sm-6 col-md-3">
+    <a [routerLink]="['/orders']" routerLinkActive="router-link-active" ><img src="../../../../assets/orders.png" width="150">
+    <br>
+    Borçlar</a>
+  </div>
+  <div class="col-6 col-sm-6 col-md-3">
+    <a [routerLink]="['/orderspaid']" routerLinkActive="router-link-active" ><img src="../../../../assets/orderspaid.png" width="150"><br>
+    Ödenmiş</a>
+  </div>
+  <div class="col-6 col-sm-6 col-md-3">
+    <a [routerLink]="['/register']" routerLinkActive="router-link-active" ><img src="../../../../assets/register.png" width="150">
+    <br>
+    Kayıt Ol</a>
+  </div>
+</div>
+
+
+<div class="jumbotron mt-4 p-5 mb-4">
+  <h1 class="display-4">Merhaba {{authService.decodedToken.unique_name | uppercase}}</h1>
+  <p class="lead">Kantin otomasyonuna hoşgeldiniz menüler aracılığı ile işlemlerinizi zaman almadan gerçekleştirebilirsiniz...</p>
+  <hr class="my-4">
+  <p>Alışveriş yapmak için tıklayınız..</p>
+  <a class="btn btn-primary btn-lg" [routerLink]="['/basketadd']" routerLinkActive="router-link-active"  role="button">Alışverişe Başla</a>
+</div>
+

@@ -1,0 +1,87 @@
+<div class="container " >
+  <div class="row">
+    <div class="col-12 m-auto col-md-6 col-sm-12">
+
+      <form #form="ngForm" (ngSubmit)="register()">
+        <h2>Yetkili Kaydet</h2><hr>
+<!-- <div class="form-group">
+  <div class="form-check form-check-inline">
+<input  class="form-check-input" type="radio" id="radioMale" name="gender" #gender="ngModel" [(ngModel)]="model.gender" value="male" required>
+<label  class="form-check-label "  for="male">Male</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input  class="form-check-input" type="radio" id="radioFemale" name="gender" #gender="ngModel" [(ngModel)]="model.gender" value="female" required>
+    <label  class="form-check-label "  for="female">Female</label>
+      </div>
+</div> -->
+
+        <div class="form-group">
+          <input type="text" #firstName="ngModel" required minlength="5" maxlength="25" [(ngModel)]="model.firstName" name="firstName" class="form-control" placeholder="İsim">
+        <div class="row">
+          <div class="btn btn-sm" *ngIf="firstName.invalid && firstName.touched">
+            <p *ngIf="firstName.errors?.required">Zorunlu alan</p>
+            <p *ngIf="firstName.errors?.minlength">Min 5 karakter</p>
+          </div>
+        </div>
+
+        </div>
+        <div class="form-group">
+          <input type="text" #lastName="ngModel" required minlength="5" maxlength="25" [(ngModel)]="model.lastName" name="lastName" class="form-control" placeholder="Soyisim">
+        <div class="row">
+          <div class="btn btn-sm" *ngIf="lastName.invalid && lastName.touched">
+            <p *ngIf="lastName.errors?.required">Zorunlu alan</p>
+            <p *ngIf="lastName.errors?.minlength">Min 5 karakter</p>
+          </div>
+        </div>
+
+        </div>
+        <div class="form-group">
+          <input type="text" #username="ngModel" required minlength="8" [(ngModel)]="model.username" name="username" class="form-control" placeholder="Kullanıcı Adı">
+          <div class="alert alert-danger" *ngIf="username.invalid && username.touched">
+          <p *ngIf="username.errors?.required">Zorunlu alan</p>
+          <p *ngIf="username.errors?.minlength">Min 8 karakter</p>
+        </div></div>
+        <div class="form-group">
+          <input type="email" #email="ngModel" email required [(ngModel)]="model.email" name="email" class="form-control" placeholder="Email">
+          <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+            <p *ngIf="email.errors?.required">Zorunlu alan</p>
+            <p *ngIf="email.errors?.email">Geçersiz eposta</p>
+
+          </div>
+
+        </div>
+        <div class="form-group">
+          <input type="password" #password="ngModel" required minlength="6" maxlength="15" [(ngModel)]="model.password" name="password" class="form-control" placeholder="Şifre">
+          <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+            <p *ngIf="password.errors?.required">Zorunlu alan</p>
+            <p *ngIf="password.errors?.minlength">Min 8 karakter</p>
+            <p *ngIf="password.errors?.maxlength">Min 15 karakter</p>
+          </div>
+        </div>
+        <!-- <div class="form-group">
+          <input type="date" #dateOfBirth="ngModel" required  [(ngModel)]="model.dateOfBirth" name="dateOfBirth" class="form-control" >
+          <div class="alert alert-danger" *ngIf="dateOfBirth.invalid && dateOfBirth.touched">
+            <p *ngIf="dateOfBirth.errors?.required">Zorunlu alan</p>
+
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <input type="text" #country="ngModel" required minlength="6" maxlength="15" [(ngModel)]="model.country" name="country" class="form-control" placeholder="country">
+          <div class="alert alert-danger" *ngIf="country.invalid && country.touched">
+            <p *ngIf="country.errors?.required">Zorunlu alan</p>
+
+          </div>
+        </div> -->
+        <!-- <div class="form-group">
+          <input type="text" #city="ngModel" required minlength="6" maxlength="15" [(ngModel)]="model.city" name="city" class="form-control" placeholder="city">
+          <div class="alert alert-danger" *ngIf="city.invalid && city.touched">
+            <p *ngIf="city.errors?.required">Zorunlu alan</p>
+
+          </div>
+        </div> -->
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-block">Kaydol</button>
+      </form>
+    </div>
+  </div>
+</div>

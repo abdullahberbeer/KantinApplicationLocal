@@ -1,0 +1,63 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark  p-3 border border-primary"  style="background-color: #3F51B5;">
+
+  <a class="navbar-brand " [routerLink]="['/']" routerLinkActive="router-link-active" style="font-size: 25px;"><mat-icon inline="true">auto_stories</mat-icon> KantinApplication <span class="mx-2">|</span></a>
+  <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="navClick($event)">
+    <!-- <span class="navbar-toggler-icon"></span> -->
+    <mat-icon>apps</mat-icon>
+  </button>
+
+  <div class="collapse navbar-collapse text-center " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1  border border-secondary text-white classborder " data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/categories']" routerLinkActive="router-link-active"  ><span class="pl-3 pr-3  text-center"><mat-icon>qr_code</mat-icon></span><br><span class="text-center">Kategoriler</span>  </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1 border border-secondary text-white classborder"  data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/products']" routerLinkActive="router-link-active" ><span class="pl-3 pr-3 text-center"><mat-icon>loyalty</mat-icon></span><br><span class="text-center">Ürünler</span>   </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1 border border-secondary text-white classborder"  data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/persons']" routerLinkActive="router-link-active" ><span class="pl-3 pr-3 text-center"><mat-icon>3p</mat-icon></span><br><span class="text-center">Üyeler</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1 border border-secondary text-white classborder"  data-toggle="collapse" data-target=".navbar-collapse.show"  [routerLink]="['/basketadd']" routerLinkActive="router-link-active" ><span class="pl-3 pr-3  text-center"><mat-icon>add_shopping_cart</mat-icon></span><br> <span class="text-center">Alışveriş Yap</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1 border border-secondary text-white classborder"  data-toggle="collapse" data-target=".navbar-collapse.show"  [routerLink]="['/baskets']" routerLinkActive="router-link-active" ><span class="pl-3 pr-3  text-center"><mat-icon>shopping_cart_checkout</mat-icon></span><br> <span class="text-center">Sepet</span></a>
+      </li>
+
+
+      <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1 border border-secondary text-white classborder"  data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/orders']" routerLinkActive="router-link-active" ><span class="pl-3 pr-3  text-center"><mat-icon>currency_lira</mat-icon></span><br> <span class="text-center">Borç</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1 border border-secondary text-white classborder"  data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/orderspaid']" routerLinkActive="router-link-active" ><span class="pl-3 pr-3  text-center"><mat-icon>done</mat-icon></span><br> <span class="text-center">Ödenmiş</span></a>
+      </li>
+      <!-- <li class="nav-item ">
+        <a class="nav-link mt-2 mx-1 border border-secondary text-white classborder"  data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/register']" routerLinkActive="router-link-active" ><span class="pl-3 pr-3  text-center"><mat-icon>done</mat-icon></span><br> <span class="text-center">Kayıt ol</span></a>
+      </li> -->
+      <li class="navbar-item">
+        <a [routerLink]="['/register']"   class="nav-link mt-2 mx-1 border border-secondary text-white classborder bg-success" data-toggle="collapse" data-target=".navbar-collapse.show"><span class="pl-3 pr-3  text-center"><mat-icon>person</mat-icon></span><br> <span class="text-center">{{authService.decodedToken.unique_name |uppercase}}</span></a>
+      </li>
+      <li class="navbar-item">
+        <a href="#"  class="nav-link mt-2 mx-1 border border-secondary text-white classborder bg-danger" (click)="logout()" data-toggle="collapse" data-target=".navbar-collapse.show" ><span class="pl-3 pr-3 text-center"><mat-icon>disabled_by_default</mat-icon></span><br> <span class="text-center">Çıkış Yap</span></a>
+      </li>
+    </ul>
+    <!-- <ul *ngIf="loggedIn()"  class="navbar-nav">
+
+      <li class="navbar-nav">
+        <a [routerLink]="['/']"   class="nav-link ">{{authService.decodedToken.unique_name}}</a>
+      </li>
+      <li class="navbar-nav">
+        <a  class="nav-link " (click)="logout()" >Çıkış Yap</a>
+      </li>
+    </ul>
+    <form *ngIf="!loggedIn()"  #form="ngForm" class="form-inline mt-2 mt-md-0 ml-auto" (ngSubmit)="login()">
+      <input #username="ngModel" required class="form-control form-control-sm mr-sm-2" required minlength="5" [(ngModel)]="model.username" type="text" name="username" placeholder="Username" >
+      <input #password="ngModel" required class="form-control form-control-sm mr-sm-2" required minlength="6" [(ngModel)]="model.password" type="password" name="password" placeholder="Password" >
+      <button [disabled]="form.invalid" class="btn btn-success btn-sm my-2 my-sm-0" type="submit">Login</button>
+    </form> -->
+  </div>
+
+</nav>
+
+

@@ -1,0 +1,63 @@
+<div class="row  ">
+  <div class="col-12 col-sm-12 col-md-6 ">
+    <span><h2 class="pl-4">Personel Güncelle</h2></span><hr>
+  </div>
+</div>
+<form #personUpdateForm="ngForm"  (ngSubmit)="updatePerson()">
+<div class="row  ">
+<div class="col-12 col-sm-12 col-md-6 m-auto">
+  <div class="form-group ">
+    <mat-form-field class="example-full-width  " appearance="outline">
+      <mat-label>İsim</mat-label>
+      <input matInput placeholder="Personel adı giriniz.." required min="0" max="100" #firstName="ngModel" [(ngModel)]="personUpdateDto.firstName" name="firstName">
+      <div class="row ">
+        <div class="btn btn-sm btn-block btn-danger " *ngIf="firstName.invalid && firstName.touched">
+          <p *ngIf="firstName.errors?.required" class="p-1">Zorunlu alan</p>
+          <p *ngIf="firstName.errors?.min" class="p-1" >Minimum 0 puan verebilirsiniz</p>
+          <p *ngIf="firstName.errors?.max" class="p-1">Maximum 100 puan verebilirsiniz</p>
+        </div>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group ">
+    <mat-form-field class="example-full-width  " appearance="outline">
+      <mat-label>Soyisim</mat-label>
+      <input matInput placeholder="Personel soyadı giriniz.." required min="0" max="100" #lastName="ngModel" [(ngModel)]="personUpdateDto.lastName" name="lastName">
+      <div class="row ">
+        <div class="btn btn-sm btn-block btn-danger " *ngIf="lastName.invalid && lastName.touched">
+          <p *ngIf="lastName.errors?.required" class="p-1">Zorunlu alan</p>
+          <p *ngIf="lastName.errors?.min" class="p-1" >Minimum 0 puan verebilirsiniz</p>
+          <p *ngIf="lastName.errors?.max" class="p-1">Maximum 100 puan verebilirsiniz</p>
+        </div>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group ">
+    <div class="form-group ">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Açıklama</mat-label>
+        <textarea matInput placeholder="Personel hakkında açıklama giriniz.." required min="0" max="100" #description="ngModel" [(ngModel)]="personUpdateDto.description" name="description"></textarea>
+        <div class="row ">
+          <div class="btn btn-sm btn-block btn-danger " *ngIf="description.invalid && description.touched">
+            <p *ngIf="description.errors?.required" class="p-1">Zorunlu alan</p>
+            <p *ngIf="description.errors?.min" class="p-1" >Minimum 0 puan verebilirsiniz</p>
+            <p *ngIf="description.errors?.max" class="p-1">Maximum 100 puan verebilirsiniz</p>
+          </div>
+        </div>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+
+
+  <div class="form-group ">
+    <button [disabled]="personUpdateForm.invalid" class="btn btn-success btn-block" >Kaydet</button>
+  </div>
+</div>
+</div>
+</form>
+
+

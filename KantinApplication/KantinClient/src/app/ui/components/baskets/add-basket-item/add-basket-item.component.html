@@ -1,0 +1,84 @@
+<div class="row  ">
+  <div class="col-12 col-sm-12 col-md-6 ">
+    <span><h2 class="pl-4">Sepete Ekle</h2></span><hr>
+  </div>
+</div>
+<form #basketAddForm="ngForm" (ngSubmit)="addBasket()" >
+<div class="row  ">
+<div class="col-12 col-sm-12 col-md-6 m-auto">
+
+
+  <div class="form-group ">
+
+    <div class="form-group ">
+
+      <!-- <select   class="form-control" required #personId="ngModel" name="addBasketItem.personId" [(ngModel)]="addBasketItem.personId">
+
+        <option *ngFor="let person of persons" value='{{person.id}}' >{{person.firstName}}</option>
+
+      </select> -->
+
+    <mat-form-field class="example-full-width  " appearance="outline">
+      <mat-label>Personel Seçiniz</mat-label>
+      <mat-select  #personId="ngModel" [(ngModel)]="addBasketItem.personId" name="personId">
+        <mat-option  *ngFor="let person of persons" [value]="person.id">{{person.firstName}} {{person.lastName}}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+
+  <div class="form-group ">
+
+    <!-- <select   class="form-control" required #id="ngModel" name="categoriesListDto.id" [(ngModel)]="categoriesListDto.id" (change)="getProductsbyCategory()">
+
+      <option *ngFor="let category of categoriesListDto" value='{{category.id}}' >{{category.name}}</option>
+
+    </select> -->
+  <mat-form-field class="example-full-width  " appearance="outline">
+    <mat-label>Kategori Seçiniz</mat-label>
+    <mat-select  [(ngModel)]="categoriesListDto.id" name="categoriesListDto.id" #id="ngModel"  (ngModelChange)="getProductsbyCategory()">
+      <mat-option  *ngFor="let categoryy of categoriesListDto" [value]="categoryy.id" >{{categoryy.name}}</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="form-group ">
+
+
+  <mat-form-field class="example-full-width  " appearance="outline">
+    <mat-label>Ürün Seçiniz</mat-label>
+    <mat-select  #productId="ngModel" [(ngModel)]="addBasketItem.productId" name="addBasketItem.productId">
+      <mat-option  *ngFor="let product of productListDto"  [value]="product.id"><b>{{product.name}}</b>  | <span class="btn btn-outline-danger btn-sm mx-3"> Tutar: {{product.price*addBasketItem.adet |currency:'TRY':'symbol-narrow':'1.2-2' }}</span>
+      </mat-option>
+
+    </mat-select>
+
+
+  </mat-form-field>
+</div>
+
+<div class="form-group ">
+  <mat-form-field class="example-full-width  " appearance="outline">
+    <mat-label>Ürün Adeti</mat-label>
+    <input matInput placeholder="Ürün adeti giriniz.." type="number" required min="0" max="100" #adet="ngModel" [(ngModel)]="addBasketItem.adet" name="addBasketItem.adet">
+    <div class="row ">
+      <div class="btn btn-sm btn-block btn-danger " *ngIf="adet.invalid && adet.touched">
+        <p *ngIf="adet.errors?.required" class="p-1">Zorunlu alan</p>
+        <p *ngIf="adet.errors?.min" class="p-1" >Minimum 0 puan verebilirsiniz</p>
+        <p *ngIf="adet.errors?.max" class="p-1">Maximum 100 puan verebilirsiniz</p>
+      </div>
+    </div>
+  </mat-form-field>
+</div>
+
+
+  <div class="form-group ">
+    <button [disabled]="basketAddForm.invalid" class="btn btn-success btn-block" >Kaydet</button>
+  </div>
+</div>
+</div>
+</div>
+</form>
