@@ -1,0 +1,31 @@
+.navbar-toggler{
+  border: none;
+  border-color: white;
+
+}
+a :link{
+  padding: 25px;
+}
+.classborder{
+
+padding: 5px;
+
+  box-shadow:1px 1px #6C757D;
+border-radius: 5px;
+
+}
+.classborder:hover{
+
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+
+
+  background-color: cornflowerblue;
+transition: all 1s;
+
+}
+
+.mat-icon {
+  font-size: 16px;
+
+}

@@ -1,0 +1,50 @@
+<div class="row  ">
+  <div class="col-12 col-sm-12 col-md-6 ">
+    <span><h2 class="pl-4">Kategori Listesi</h2></span><hr>
+  </div>
+</div>
+<div class="row p-3">
+  <div class="col col-md-6 col-sm-12 ">
+
+    <button mat-raised-button  [routerLink]="['/categoryadd']" routerLinkActive="router-link-active"  color="primary" class="btn btn-block">Kategori Ekle</button>
+  </div>
+    <div class="col col-md-6 col-sm-12 ">
+
+      <input type="text" placeholder="Aramak istediğiniz kategoriyi yazınız.." class="form-control  float-right" [(ngModel)]="filterString" (keyup)="filterCategories()"></div>
+  </div>
+
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort >
+
+    <!-- Position Column -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <b>Category Adı </b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit" >
+      <th mat-header-cell *matHeaderCellDef>Güncelle</th>
+      <td mat-cell *matCellDef="let element">
+      <a [routerLink]="['/categories/update/',element.id]"  ><mat-icon inline="true">edit</mat-icon></a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete" >
+      <th mat-header-cell *matHeaderCellDef>Sil</th>
+      <td mat-cell *matCellDef="let element">
+      <button (click)="deleteCategory(element.id)" class="btn btn-light"><mat-icon inline="true" style="color: crimson;">delete</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

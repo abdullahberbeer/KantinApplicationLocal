@@ -1,0 +1,38 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark  p-3 border border-primary"  style="background-color: #3F51B5;">
+
+  <a class="navbar-brand "   style="font-size: 25px; color: white;"><mat-icon inline="true">auto_stories</mat-icon> KantinApplication</a>
+
+
+
+</nav>
+
+
+<div class="row mt-3">
+<div class="col-12 col-md-12 col-sm-12 pl-5 pr-5">
+  <p class="lead text-center">Sisteme girebilmek için giriş yapmalısınız..</p>
+  <hr >
+</div>
+</div>
+
+  <!-- <p>Alışveriş yapma için tıklayınız..</p>
+  <a class="btn btn-primary btn-lg" [routerLink]="['/basketadd']" routerLinkActive="router-link-active"  role="button">Alışverişe Başla</a> -->
+
+
+
+<div class="row mt-3 pl-5 pr-5 ">
+  <div class="col-12 col-sm-12 col-md-4 m-auto">
+   <h1>Giriş Yap</h1>
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <input class="form-control p-4" required minlength="5" [(ngModel)]="model.username" type="text" name="username" placeholder="Kullanıcı adı giriniz..">
+      </div>
+      <div class="form-group">
+        <input class="form-control p-4" required minlength="6" [(ngModel)]="model.password" type="password" name="password" placeholder="Parola giriniz..">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-block p-3">Giriş Yap</button>
+      </div>
+    </form>
+  </div>
+</div>

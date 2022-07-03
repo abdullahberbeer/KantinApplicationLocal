@@ -1,0 +1,147 @@
+
+<div class="row  ">
+  <div class="col-12 col-sm-12 col-md-6 ">
+    <span><h2 class="pl-4">Ödenmiş Borç Listesi</h2></span><hr>
+  </div>
+</div>
+
+<div class="row p-3">
+  <div class="col col-md-6 col-sm-12 ">
+    <label>Ara</label>
+    <input type="text" placeholder="Ara" class="form-control  float-right" [(ngModel)]="filterString" (ngModelChange)="filterOrders()">
+  </div>
+    <div class="col col-md-6 col-sm-12 ">
+      <label>Tarih Seç</label>
+    <input type="date" placeholder="Ara" class="form-control  float-right" [(ngModel)]="filterStringDate" (ngModelChange)="filterOrdersDate()"></div>
+  </div>
+<div class="mb-5">
+
+
+ <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort >
+
+
+    <ng-container matColumnDef="personId">
+
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > <b>Borç Listesi </b> </th>
+
+      <td mat-cell *matCellDef=" let element"  > <button class="btn btn-sm btn-warning  " (click)="addPayment(element.id)"> Ödenmedi Olarak İşaretle <mat-icon>close</mat-icon></button> <mat-tab-group>
+        <mat-tab label="Personel"  ><div class="p-3"><span style="font-size: 20px;">{{element.person.firstName}} {{element.person.lastName}}</span></div></mat-tab>
+        <mat-tab label="Sepet"  >
+          <div class="d-flex flex-row-reverse bd-highlight mb-2">
+            <div class="p-2 bd-highlight">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+              <option *ngFor="let size of tableSizes" [ngValue]="size">{{size}}</option>
+            </select>
+          </div>
+          </div>
+<table class="table table-bordered">
+             <tr>
+            <th>Ürün Adı</th>
+            <th>Adet</th>
+            <th>Birim Fiyatı</th>
+              <th>Toplam</th>
+
+           </tr>
+           <tr *ngFor="let item of element.orderItems |  paginate
+           : {
+              itemsPerPage:tableSize,
+              currentPage:page,
+              totalItems:count
+
+           };
+       let i = index
+     ">
+            <td style="font-size: 15px;">{{item.product.name}}</td>
+            <td style="font-size: 15px;">{{item.quantity}}</td>
+            <td style="font-size: 15px;">{{item.product.price | currency:'TRY':'symbol-narrow':'1.2-2'}}</td>
+            <td style="font-size: 15px;" >{{item.price | currency:'TRY':'symbol-narrow':'1.2-2'  }} </td>
+
+           </tr>
+           <tr>
+
+            <td colspan="4" class="text-center"><b>Alışveriş Tarihi: {{element.orderAdded | date:'dd/MM/yyyy'}}</b></td>
+           </tr>
+          </table>
+
+          <div class="d-flex justify-content-center">
+            <pagination-controls  previousLabel="
+            Geri" nextLabel="İleri" (pageChange)="onTableDataChange($event)" ></pagination-controls>
+
+
+          </div>
+
+
+        </mat-tab>
+       <!--<mat-tab label="Sepeti Sil"  >
+        <div class="p-5">
+
+
+        <div class="row ">
+           <div class="col col-sm-12 col-md-12 d-flex justify-content-center">
+            <div class="form-group text-center">
+            <h3>Sepetteki tüm ürünler silinecek onaylıyor musunuz?</h3><hr>
+          </div>
+           </div></div>
+
+           <div class="row ">
+            <div class="col col-sm-12 col-md-12 d-flex justify-content-center">
+             <div class="form-group" >
+          <button class="btn btn-danger pl-5 pr-5" >Sepeti Sil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+       </mat-tab> -->
+      </mat-tab-group></td>
+
+
+    </ng-container>
+
+
+
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+</div>
+
+
+
+<!-- <div class="row p-3">
+  <div class="col-md-12 ">
+    <input type="text" placeholder="Ara" class="form-control w-25 float-right" [(ngModel)]="filterString" (keyup)="filterOrders()">
+  </div>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort >
+
+
+
+
+    <ng-container matColumnDef="personId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <b>Alışveriş Kodu </b> </th>
+      <td mat-cell *matCellDef="let element"># {{element.person.firstName}} {{element.person.lastName}} </td>
+    </ng-container>
+
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div> -->

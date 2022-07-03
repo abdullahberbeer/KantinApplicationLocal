@@ -1,0 +1,42 @@
+<div class="row  ">
+  <div class="col-12 col-sm-12 col-md-6 ">
+    <span><h2 class="pl-4">Kategori Güncelle</h2></span><hr>
+  </div>
+</div>
+<form #categoryUpdateForm="ngForm" (ngSubmit)="updateCategory()">
+<div class="row  ">
+<div class="col-12 col-sm-12 col-md-6 m-auto">
+  <div class="form-group ">
+    <mat-form-field class="example-full-width  " appearance="outline">
+      <mat-label>Kategori Adı</mat-label>
+      <input matInput placeholder="Kategori adı giriniz.." required min="0" max="100" #name="ngModel" [(ngModel)]="categoryUpdateDto.name" name="name">
+      <div class="row ">
+        <div class="btn btn-sm btn-block btn-danger " *ngIf="name.invalid && name.touched">
+          <p *ngIf="name.errors?.required" class="p-1">Zorunlu alan</p>
+          <p *ngIf="name.errors?.min" class="p-1" >Minimum 0 puan verebilirsiniz</p>
+          <p *ngIf="name.errors?.max" class="p-1">Maximum 100 puan verebilirsiniz</p>
+        </div>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group ">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Açıklama</mat-label>
+      <textarea matInput placeholder="Kategori açıklama adı giriniz.." required min="0" max="100" #description="ngModel" [(ngModel)]="categoryUpdateDto.description" name="description"></textarea>
+      <div class="row ">
+        <div class="btn btn-sm btn-block btn-danger " *ngIf="description.invalid && description.touched">
+          <p *ngIf="description.errors?.required" class="p-1">Zorunlu alan</p>
+          <p *ngIf="description.errors?.min" class="p-1" >Minimum 0 puan verebilirsiniz</p>
+          <p *ngIf="description.errors?.max" class="p-1">Maximum 100 puan verebilirsiniz</p>
+        </div>
+      </div>
+    </mat-form-field>
+  </div>
+  <div class="form-group ">
+    <button [disabled]="categoryUpdateForm.invalid" class="btn btn-success btn-block" >Kaydet</button>
+  </div>
+</div>
+</div>
+</form>
+

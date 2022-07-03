@@ -1,0 +1,11 @@
+[
+  {
+
+    "FirstName": "admin",
+    "LastName": "admin",
+    "UserName": "admin",
+    "Email": "admin@admin.online",
+    "Role": "Admin",
+    "Password": "password."
+  }
+]
